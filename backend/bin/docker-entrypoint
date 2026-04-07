@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+
+# Run migrations
+echo "Running database migrations..."
+bundle exec rails db:migrate
+
+# Seed database if tables are empty
+echo "Checking if database needs seeding..."
+bundle exec rails runner "exit(User.count > 0 ? 0 : 1)" 2>/dev/null || bundle exec rails db:seed
+
+echo "Starting server..."
+exec "$@"

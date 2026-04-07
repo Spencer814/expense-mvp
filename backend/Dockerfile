@@ -28,8 +28,12 @@ COPY . .
 # Precompile bootsnap
 RUN bundle exec bootsnap precompile --gemfile app/ lib/
 
+# Make entrypoint executable
+RUN chmod +x bin/docker-entrypoint
+
 # Expose port
 EXPOSE 3000
 
-# Start the server
+# Run migrations and start server
+ENTRYPOINT ["bin/docker-entrypoint"]
 CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
