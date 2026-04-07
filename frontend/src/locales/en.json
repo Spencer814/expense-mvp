@@ -1,0 +1,150 @@
+{
+  "app": {
+    "title": "Expense Approval MVP"
+  },
+  "nav": {
+    "expenses": "Expenses",
+    "dashboard": "Dashboard",
+    "newExpense": "+ New Expense"
+  },
+  "settings": {
+    "language": "Language",
+    "currency": "Currency",
+    "theme": "Theme",
+    "lightMode": "Light",
+    "darkMode": "Dark"
+  },
+  "user": {
+    "selectUser": "Select User",
+    "currentUser": "Current User"
+  },
+  "roles": {
+    "employee": "Employee",
+    "manager": "Manager",
+    "finance": "Finance"
+  },
+  "expenses": {
+    "title": "Expenses",
+    "loading": "Loading expenses...",
+    "empty": "No expenses found",
+    "createFirst": "Create your first expense",
+    "table": {
+      "title": "Title",
+      "vendor": "Vendor",
+      "amount": "Amount",
+      "date": "Date",
+      "status": "Status"
+    }
+  },
+  "form": {
+    "title": "New Expense",
+    "receiptUrl": "Receipt URL",
+    "parseReceipt": "Parse Receipt (OCR)",
+    "parsing": "Parsing...",
+    "expenseTitle": "Title",
+    "vendor": "Vendor Name",
+    "amount": "Amount",
+    "date": "Expense Date",
+    "category": "Category",
+    "selectCategory": "Select a category",
+    "description": "Description",
+    "descriptionPlaceholder": "Optional description or notes",
+    "saveDraft": "Save Draft",
+    "submit": "Submit",
+    "saving": "Saving...",
+    "submitting": "Submitting...",
+    "draftSaved": "Draft saved",
+    "required": "*"
+  },
+  "detail": {
+    "backToList": "Back to List",
+    "vendor": "Vendor",
+    "amount": "Amount",
+    "date": "Expense Date",
+    "category": "Category",
+    "created": "Created",
+    "updated": "Updated",
+    "description": "Description",
+    "receipt": "Receipt",
+    "viewReceipt": "View Receipt",
+    "approvalHistory": "Approval History",
+    "actions": "Actions",
+    "submitForApproval": "Submit for Approval",
+    "submitting": "Submitting...",
+    "approve": "Approve",
+    "reject": "Reject",
+    "approving": "Approving...",
+    "rejecting": "Rejecting...",
+    "markAsPaid": "Mark as Paid",
+    "processing": "Processing...",
+    "commentLabel": "Comment (required for rejection)",
+    "commentPlaceholder": "Add a comment...",
+    "notFound": "Expense not found"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "loading": "Loading dashboard...",
+    "submitted": "Submitted",
+    "approved": "Approved",
+    "paid": "Paid",
+    "pendingAmount": "Pending Amount",
+    "categoryTotals": "Totals by Category",
+    "category": "Category",
+    "totalAmount": "Total Amount",
+    "noData": "No expense data available",
+    "total": "Total"
+  },
+  "status": {
+    "draft": "draft",
+    "submitted": "submitted",
+    "approved": "approved",
+    "rejected": "rejected",
+    "paid": "paid"
+  },
+  "categories": {
+    "travel": "Travel",
+    "meals": "Meals",
+    "office": "Office Supplies",
+    "supplies": "Office Supplies",
+    "software": "Software",
+    "equipment": "Equipment",
+    "other": "Other"
+  },
+  "samples": {
+    "officeSupplies": {
+      "title": "Office Supplies",
+      "description": "Paper, pens and folders for the team"
+    },
+    "businessLunch": {
+      "title": "Business Lunch",
+      "description": "Lunch with potential client - Mobile World Congress project discussion"
+    },
+    "softwareLicense": {
+      "title": "Software License",
+      "description": "Annual CRM subscription for the sales team"
+    },
+    "conferenceTravel": {
+      "title": "Conference Travel",
+      "description": "Round-trip flight Barcelona-Amsterdam for Smart City Expo"
+    },
+    "teamBuilding": {
+      "title": "Team Building Activity",
+      "description": "Q1 team outing for the Sales department"
+    },
+    "personalItem": {
+      "title": "Personal Item",
+      "description": "Office equipment"
+    }
+  },
+  "approvalComments": {
+    "approved": "Approved. Necessary expense for our sales work.",
+    "approvedConference": "Approved. Conference attendance is valuable for professional development.",
+    "rejected": "This appears to be a personal purchase. Please review the company expense policy."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Retry",
+    "notFound": "Page not found"
+  }
+}

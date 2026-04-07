@@ -1,0 +1,31 @@
+# OS files
+.DS_Store
+Thumbs.db
+._*
+
+# IDE and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# Claude Code working directory (optional - remove if you want to keep)
+.claude/
+
+# Environment variables (if any at root)
+.env
+.env.local
+
+# Logs
+*.log
+
+# Internal documentation (not needed in repo)
+BUILD-LOG.md
+PROJECT-STATUS.md
+BACKEND-COMPLETE.md
+BACKEND-SETUP-SUMMARY.md
+TESTING-PLAN.md
+TESTING-SUMMARY.md

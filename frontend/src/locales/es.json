@@ -1,0 +1,150 @@
+{
+  "app": {
+    "title": "Gestión de Gastos MVP"
+  },
+  "nav": {
+    "expenses": "Gastos",
+    "dashboard": "Panel",
+    "newExpense": "+ Nuevo Gasto"
+  },
+  "settings": {
+    "language": "Idioma",
+    "currency": "Moneda",
+    "theme": "Tema",
+    "lightMode": "Claro",
+    "darkMode": "Oscuro"
+  },
+  "user": {
+    "selectUser": "Seleccionar Usuario",
+    "currentUser": "Usuario Actual"
+  },
+  "roles": {
+    "employee": "Empleado",
+    "manager": "Gerente",
+    "finance": "Finanzas"
+  },
+  "expenses": {
+    "title": "Gastos",
+    "loading": "Cargando gastos...",
+    "empty": "No se encontraron gastos",
+    "createFirst": "Crea tu primer gasto",
+    "table": {
+      "title": "Título",
+      "vendor": "Proveedor",
+      "amount": "Importe",
+      "date": "Fecha",
+      "status": "Estado"
+    }
+  },
+  "form": {
+    "title": "Nuevo Gasto",
+    "receiptUrl": "URL del Recibo",
+    "parseReceipt": "Analizar Recibo (OCR)",
+    "parsing": "Analizando...",
+    "expenseTitle": "Título",
+    "vendor": "Nombre del Proveedor",
+    "amount": "Importe",
+    "date": "Fecha del Gasto",
+    "category": "Categoría",
+    "selectCategory": "Selecciona una categoría",
+    "description": "Descripción",
+    "descriptionPlaceholder": "Descripción o notas opcionales",
+    "saveDraft": "Guardar Borrador",
+    "submit": "Enviar",
+    "saving": "Guardando...",
+    "submitting": "Enviando...",
+    "draftSaved": "Borrador guardado",
+    "required": "*"
+  },
+  "detail": {
+    "backToList": "Volver a la Lista",
+    "vendor": "Proveedor",
+    "amount": "Importe",
+    "date": "Fecha del Gasto",
+    "category": "Categoría",
+    "created": "Creado",
+    "updated": "Actualizado",
+    "description": "Descripción",
+    "receipt": "Recibo",
+    "viewReceipt": "Ver Recibo",
+    "approvalHistory": "Historial de Aprobaciones",
+    "actions": "Acciones",
+    "submitForApproval": "Enviar para Aprobación",
+    "submitting": "Enviando...",
+    "approve": "Aprobar",
+    "reject": "Rechazar",
+    "approving": "Aprobando...",
+    "rejecting": "Rechazando...",
+    "markAsPaid": "Marcar como Pagado",
+    "processing": "Procesando...",
+    "commentLabel": "Comentario (requerido para rechazo)",
+    "commentPlaceholder": "Añade un comentario...",
+    "notFound": "Gasto no encontrado"
+  },
+  "dashboard": {
+    "title": "Panel de Control",
+    "loading": "Cargando panel...",
+    "submitted": "Enviados",
+    "approved": "Aprobados",
+    "paid": "Pagados",
+    "pendingAmount": "Importe Pendiente",
+    "categoryTotals": "Totales por Categoría",
+    "category": "Categoría",
+    "totalAmount": "Importe Total",
+    "noData": "No hay datos de gastos disponibles",
+    "total": "Total"
+  },
+  "status": {
+    "draft": "borrador",
+    "submitted": "enviado",
+    "approved": "aprobado",
+    "rejected": "rechazado",
+    "paid": "pagado"
+  },
+  "categories": {
+    "travel": "Viajes",
+    "meals": "Comidas",
+    "office": "Material de Oficina",
+    "supplies": "Material de Oficina",
+    "software": "Software",
+    "equipment": "Equipamiento",
+    "other": "Otros"
+  },
+  "samples": {
+    "officeSupplies": {
+      "title": "Material de Oficina",
+      "description": "Papel, bolígrafos y carpetas para el equipo"
+    },
+    "businessLunch": {
+      "title": "Almuerzo de Negocios",
+      "description": "Almuerzo con cliente potencial - Discusión del proyecto Mobile World Congress"
+    },
+    "softwareLicense": {
+      "title": "Licencia de Software",
+      "description": "Suscripción anual CRM para el equipo de ventas"
+    },
+    "conferenceTravel": {
+      "title": "Viaje a Conferencia",
+      "description": "Vuelo ida y vuelta Barcelona-Ámsterdam para Smart City Expo"
+    },
+    "teamBuilding": {
+      "title": "Actividad de Team Building",
+      "description": "Salida de equipo Q1 para el departamento de Ventas"
+    },
+    "personalItem": {
+      "title": "Artículo Personal",
+      "description": "Equipamiento de oficina"
+    }
+  },
+  "approvalComments": {
+    "approved": "Aprobado. Gasto necesario para nuestro trabajo de ventas.",
+    "approvedConference": "Aprobado. La asistencia a la conferencia es valiosa para el desarrollo profesional.",
+    "rejected": "Esto parece una compra personal. Por favor, revise la política de gastos de la empresa."
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "retry": "Reintentar",
+    "notFound": "Página no encontrada"
+  }
+}

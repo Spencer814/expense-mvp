@@ -1,0 +1,280 @@
+================================================================================
+SAMPLE K6 TEST OUTPUT
+================================================================================
+
+This file shows example output from running the k6 performance tests.
+
+================================================================================
+1. API LOAD TEST OUTPUT
+================================================================================
+
+$ k6 run tests/k6/api-load-test.js
+
+          /\      |‾‾| /‾‾/   /‾‾/
+     /\  /  \     |  |/  /   /  /
+    /  \/    \    |     (   /   ‾‾\
+   /          \   |  |\  \ |  (‾)  |
+  / __________ \  |__| \__\ \_____/ .io
+
+  execution: local
+     script: tests/k6/api-load-test.js
+     output: -
+
+  scenarios: (100.00%) 1 scenario, 50 max VUs, 3m0s max duration (incl. graceful stop):
+           * default: Up to 50 looping VUs for 2m30s over 4 stages
+
+Starting API Load Test
+Base URL: http://localhost:3000/api
+Configuration:
+  - Virtual Users: 10 -> 30 -> 50 -> 0
+  - Duration: 2.5 minutes total
+  - Thresholds: p95 < 500ms, error rate < 1%
+
+
+running (2m30.5s), 00/50 VUs, 2847 complete and 0 interrupted iterations
+default ✓ [======================================] 00/50 VUs  2m30s
+
+     ✓ expenses - status is 200
+     ✓ expenses - response is JSON
+     ✓ expenses - has data array
+     ✓ expenses - response time < 1s
+     ✓ dashboard - status is 200
+     ✓ dashboard - response is JSON
+     ✓ dashboard - has metrics
+     ✓ dashboard - response time < 1.5s
+     ✓ users - status is 200
+     ✓ users - has users array
+
+     checks.........................: 99.82% ✓ 28423   ✗ 52
+     data_received..................: 12 MB  79 kB/s
+     data_sent......................: 1.1 MB 7.2 kB/s
+     errors.........................: 0.18%  ✓ 52      ✗ 28371
+     expenses_response_time.........: avg=127ms min=45ms med=98ms  max=892ms p(90)=245ms p(95)=362ms
+     dashboard_response_time........: avg=298ms min=87ms med=245ms max=1.2s  p(90)=512ms p(95)=687ms
+     http_req_blocked...............: avg=1.2ms min=1µs  med=3µs   max=45ms  p(90)=5µs   p(95)=7µs
+     http_req_connecting............: avg=721µs min=0s   med=0s    max=38ms  p(90)=0s    p(95)=0s
+     http_req_duration..............: avg=178ms min=45ms med=134ms max=1.2s  p(90)=389ms p(95)=487ms
+       { expected_response:true }...: avg=177ms min=45ms med=133ms max=892ms p(90)=387ms p(95)=482ms
+     http_req_failed................: 0.18%  ✓ 52      ✗ 28371
+     http_req_receiving.............: avg=42µs  min=12µs med=35µs  max=2.1ms p(90)=68µs  p(95)=89µs
+     http_req_sending...............: avg=18µs  min=5µs  med=15µs  max=1.8ms p(90)=28µs  p(95)=38µs
+     http_req_tls_handshaking.......: avg=0s    min=0s   med=0s    max=0s    p(90)=0s    p(95)=0s
+     http_req_waiting...............: avg=178ms min=45ms med=134ms max=1.2s  p(90)=389ms p(95)=486ms
+     http_reqs......................: 28423  188.7/s
+     iteration_duration.............: avg=5.8s  min=3.2s med=5.4s  max=12.3s p(90)=8.1s  p(95)=9.2s
+     iterations.....................: 2847   18.9/s
+     vus............................: 1      min=1     max=50
+     vus_max........................: 50     min=50    max=50
+
+API Load Test completed
+
+
+================================================================================
+2. WORKFLOW TEST OUTPUT
+================================================================================
+
+$ k6 run tests/k6/workflow-test.js
+
+          /\      |‾‾| /‾‾/   /‾‾/
+     /\  /  \     |  |/  /   /  /
+    /  \/    \    |     (   /   ‾‾\
+   /          \   |  |\  \ |  (‾)  |
+  / __________ \  |__| \__\ \_____/ .io
+
+  execution: local
+     script: tests/k6/workflow-test.js
+     output: -
+
+  scenarios: (100.00%) 1 scenario, 10 max VUs, 4m30s max duration (incl. graceful stop):
+           * default: Up to 10 looping VUs for 4m0s over 4 stages
+
+Starting Workflow Test
+Base URL: http://localhost:3000/api
+Workflow Steps:
+  1. Employee creates expense (draft)
+  2. Employee submits expense (submitted)
+  3. Manager approves expense (approved)
+  4. Finance marks as paid (paid)
+
+Test Configuration:
+  - Virtual Users: 5 -> 10 (sustained)
+  - Duration: 4 minutes total
+  - Target: 95% workflow success rate
+
+
+running (4m00.2s), 00/10 VUs, 856 complete and 0 interrupted iterations
+default ✓ [======================================] 00/10 VUs  4m0s
+
+     ✓ create - status is 201 or 200
+     ✓ create - has expense id
+     ✓ create - status is draft
+     ✓ submit - status is 200
+     ✓ submit - status is submitted
+     ✓ approve - status is 200
+     ✓ approve - status is approved
+     ✓ pay - status is 200
+     ✓ pay - status is paid
+     ✓ verify - can retrieve expense
+     ✓ verify - final status is paid
+
+     checks.........................: 97.84% ✓ 9216    ✗ 204
+     completed_workflows............: 812    3.38/s
+     data_received..................: 2.8 MB 11.6 kB/s
+     data_sent......................: 487 kB 2.0 kB/s
+     errors.........................: 2.16%  ✓ 204     ✗ 9216
+     expense_approval_time..........: avg=156ms min=52ms  med=132ms max=678ms p(90)=287ms p(95)=389ms
+     expense_creation_time..........: avg=198ms min=67ms  med=165ms max=892ms p(90)=345ms p(95)=467ms
+     expense_payment_time...........: avg=143ms min=48ms  med=118ms max=612ms p(90)=268ms p(95)=356ms
+     http_req_blocked...............: avg=812µs min=1µs   med=3µs   max=42ms  p(90)=5µs   p(95)=8µs
+     http_req_connecting............: avg=487µs min=0s    med=0s    max=35ms  p(90)=0s    p(95)=0s
+     http_req_duration..............: avg=165ms min=48ms  med=138ms max=892ms p(90)=312ms p(95)=421ms
+       { expected_response:true }...: avg=163ms min=48ms  med=136ms max=678ms p(90)=308ms p(95)=412ms
+     http_req_failed................: 2.16%  ✓ 204     ✗ 9216
+     http_req_receiving.............: avg=38µs  min=11µs  med=32µs  max=1.8ms p(90)=62µs  p(95)=84µs
+     http_req_sending...............: avg=16µs  min=5µs   med=14µs  max=1.2ms p(90)=26µs  p(95)=35µs
+     http_req_tls_handshaking.......: avg=0s    min=0s    med=0s    max=0s    p(90)=0s    p(95)=0s
+     http_req_waiting...............: avg=165ms min=48ms  med=138ms max=892ms p(90)=312ms p(95)=421ms
+     http_reqs......................: 9420   39.2/s
+     iteration_duration.............: avg=6.2s  min=4.8s  med=5.9s  max=14.1s p(90)=7.8s  p(95)=8.9s
+     iterations.....................: 856    3.56/s
+     vus............................: 1      min=1     max=10
+     vus_max........................: 10     min=10    max=10
+     workflow_duration..............: avg=3.1s  min=1.8s  med=2.8s  max=7.2s  p(90)=4.5s  p(95)=5.3s
+     workflow_success...............: 97.84% ✓ 812     ✗ 44
+
+Workflow Test completed
+
+
+================================================================================
+3. DASHBOARD STRESS TEST OUTPUT
+================================================================================
+
+$ k6 run tests/k6/dashboard-stress-test.js
+
+          /\      |‾‾| /‾‾/   /‾‾/
+     /\  /  \     |  |/  /   /  /
+    /  \/    \    |     (   /   ‾‾\
+   /          \   |  |\  \ |  (‾)  |
+  / __________ \  |__| \__\ \_____/ .io
+
+  execution: local
+     script: tests/k6/dashboard-stress-test.js
+     output: -
+
+  scenarios: (100.00%) 1 scenario, 100 max VUs, 10m0s max duration (incl. graceful stop):
+           * default: Up to 100 looping VUs for 9m0s over 8 stages
+
+Starting Dashboard Stress Test
+Base URL: http://localhost:3000/api
+
+Stress Test Profile:
+  Stage 1: 10 VUs  (1 min) - Baseline
+  Stage 2: 20 VUs  (1 min) - Light load
+  Stage 3: 40 VUs  (1 min) - Moderate load
+  Stage 4: 60 VUs  (1 min) - Heavy load
+  Stage 5: 80 VUs  (1 min) - Very heavy load
+  Stage 6: 100 VUs (2 min) - Stress load
+  Stage 7: 100 VUs (1 min) - Sustained stress
+  Stage 8: 0 VUs   (1 min) - Recovery
+
+Objectives:
+  - Find maximum sustainable load
+  - Identify response time degradation points
+  - Monitor error rates at peak load
+  - Verify system recovery after stress
+
+Dashboard endpoint verified - starting stress test
+
+
+running (9m00.3s), 000/100 VUs, 18234 complete and 0 interrupted iterations
+default ✓ [======================================] 000/100 VUs  9m0s
+
+     ✓ status is 200
+     ✓ response is JSON
+     ✓ has required fields
+     ✓ response time acceptable
+     ✓ expenses - status is 200
+     ✓ expenses - faster than dashboard
+
+     checks.........................: 96.32% ✓ 105478  ✗ 4032
+     current_virtual_users..........: 1      min=1     max=100
+     dashboard_response_time........: avg=487ms min=87ms  med=352ms max=4.8s  p(90)=1.2s  p(95)=1.8s
+     data_received..................: 38 MB  70.4 kB/s
+     data_sent......................: 3.2 MB 5.9 kB/s
+     errors.........................: 3.68%  ✓ 4032    ✗ 105478
+     http_req_blocked...............: avg=1.8ms min=1µs   med=3µs   max=89ms  p(90)=6µs   p(95)=9µs
+     http_req_connecting............: avg=1.1ms min=0s    med=0s    max=72ms  p(90)=0s    p(95)=0s
+     http_req_duration..............: avg=523ms min=87ms  med=389ms max=4.8s  p(90)=1.3s  p(95)=1.9s
+       { expected_response:true }...: avg=498ms min=87ms  med=376ms max=3.2s  p(90)=1.2s  p(95)=1.7s
+     http_req_failed................: 3.68%  ✓ 4032    ✗ 105478
+     http_req_receiving.............: avg=46µs  min=11µs  med=38µs  max=3.2ms p(90)=78µs  p(95)=102µs
+     http_req_sending...............: avg=21µs  min=5µs   med=17µs  max=2.8ms p(90)=32µs  p(95)=44µs
+     http_req_tls_handshaking.......: avg=0s    min=0s    med=0s    max=0s    p(90)=0s    p(95)=0s
+     http_req_waiting...............: avg=523ms min=87ms  med=389ms max=4.8s  p(90)=1.3s  p(95)=1.9s
+     http_reqs......................: 109510 203.5/s
+     iteration_duration.............: avg=2.1s  min=487ms med=1.8s  max=8.9s  p(90)=3.8s  p(95)=4.7s
+     iterations.....................: 18234  33.9/s
+     slow_responses.................: 12456  23.1/s
+     successful_requests............: 105478 195.8/s
+     very_slow_responses............: 2847   5.3/s
+     vus............................: 1      min=1     max=100
+     vus_max........................: 100    min=100   max=100
+
+╔════════════════════════════════════════════════════════════╗
+║          DASHBOARD STRESS TEST SUMMARY                     ║
+╠════════════════════════════════════════════════════════════╣
+║ Total Requests:     109510     ║
+║ Success Rate:       96.32%                                 ║
+║ Error Rate:          3.68%                                 ║
+║ Avg Response Time:   487.23ms                              ║
+║ P95 Response Time:  1789.45ms                              ║
+║ Slow Responses:     12456      (>1s)                       ║
+║ Very Slow:          2847       (>3s)                       ║
+╚════════════════════════════════════════════════════════════╝
+
+==========================================================
+Dashboard Stress Test - Complete
+==========================================================
+Baseline response time: 145.67ms
+
+Analysis Tips:
+  1. Compare p50, p90, p95 response times across load stages
+  2. Identify at what VU count response times spike significantly
+  3. Check error_rate to find the breaking point
+  4. Monitor slow_responses and very_slow_responses metrics
+  5. Verify system recovered during ramp-down phase
+
+Next Steps:
+  - If errors spike before 50 VUs: Optimize dashboard queries
+  - If response times > 3s at 30 VUs: Add caching layer
+  - If system sustains 100 VUs: Try higher load or longer duration
+
+
+================================================================================
+KEY OBSERVATIONS FROM SAMPLE OUTPUT
+================================================================================
+
+1. API Load Test:
+   ✅ Passed all thresholds
+   ✅ p95 response time: 487ms (< 500ms target)
+   ✅ Error rate: 0.18% (< 1% target)
+   → System handles 50 concurrent users well
+
+2. Workflow Test:
+   ✅ 97.84% workflow success rate (> 95% target)
+   ✅ Average workflow duration: 3.1s (< 5s target)
+   ⚠️  2.16% error rate (acceptable for workflow complexity)
+   → State machine handles concurrent transitions well
+
+3. Dashboard Stress Test:
+   ⚠️  At 100 VUs, response times degrade to ~1.8s p95
+   ⚠️  3.68% error rate under stress (< 10% threshold)
+   ⚠️  12,456 slow responses (>1s)
+   → Dashboard needs optimization above 60 VUs
+   → Consider adding caching or query optimization
+
+RECOMMENDATIONS:
+- Current system handles ~50 concurrent users comfortably
+- Dashboard should implement caching for aggregations
+- Monitor error patterns in workflow test for race conditions
+- Consider indexing expense queries for better performance

@@ -1,0 +1,56 @@
+{
+  "name": "expense-mvp-e2e-tests",
+  "version": "1.0.0",
+  "description": "Playwright E2E tests for Expense Approval MVP",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "test:workflow": "playwright test expense-workflow.spec.ts",
+    "test:roles": "playwright test role-based-access.spec.ts",
+    "test:form": "playwright test expense-form.spec.ts",
+    "test:dashboard": "playwright test dashboard.spec.ts",
+    "test:chrome": "playwright test --project=chromium",
+    "test:all": "playwright test --project=chromium",
+    "report": "playwright show-report",
+    "codegen": "playwright codegen http://localhost:5173",
+    "install-browsers": "playwright install chromium",
+    "install-deps": "playwright install-deps",
+    "test:ci": "playwright test --project=chromium --reporter=html,json",
+    "test:parallel": "playwright test --workers=4",
+    "test:serial": "playwright test --workers=1"
+  },
+  "keywords": [
+    "e2e",
+    "testing",
+    "playwright",
+    "expense-tracking",
+    "workflow"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.42.1",
+    "@storybook/react": "^10.3.3",
+    "@storybook/react-vite": "^10.3.3",
+    "@types/node": "^20.11.24",
+    "@typescript-eslint/eslint-plugin": "^8.57.2",
+    "@typescript-eslint/parser": "^8.57.2",
+    "autoprefixer": "^10.4.27",
+    "eslint": "^10.1.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "msw-storybook-addon": "^2.0.6",
+    "postcss": "^8.5.8",
+    "prettier": "^3.8.1",
+    "storybook": "^10.3.3",
+    "tailwindcss": "^4.2.2",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
