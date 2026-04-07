@@ -34,6 +34,5 @@ RUN chmod +x bin/docker-entrypoint
 # Expose port
 EXPOSE 3000
 
-# Run migrations and start server
-ENTRYPOINT ["bin/docker-entrypoint"]
-CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
+# Run migrations and start server - v3 force rebuild
+CMD ["./bin/docker-entrypoint", "bundle", "exec", "puma", "-C", "config/puma.rb"]
