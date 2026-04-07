@@ -1,0 +1,150 @@
+{
+  "app": {
+    "title": "Gestió de Despeses MVP"
+  },
+  "nav": {
+    "expenses": "Despeses",
+    "dashboard": "Tauler",
+    "newExpense": "+ Nova Despesa"
+  },
+  "settings": {
+    "language": "Idioma",
+    "currency": "Moneda",
+    "theme": "Tema",
+    "lightMode": "Clar",
+    "darkMode": "Fosc"
+  },
+  "user": {
+    "selectUser": "Seleccionar Usuari",
+    "currentUser": "Usuari Actual"
+  },
+  "roles": {
+    "employee": "Empleat",
+    "manager": "Gerent",
+    "finance": "Finances"
+  },
+  "expenses": {
+    "title": "Despeses",
+    "loading": "Carregant despeses...",
+    "empty": "No s'han trobat despeses",
+    "createFirst": "Crea la teva primera despesa",
+    "table": {
+      "title": "Títol",
+      "vendor": "Proveïdor",
+      "amount": "Import",
+      "date": "Data",
+      "status": "Estat"
+    }
+  },
+  "form": {
+    "title": "Nova Despesa",
+    "receiptUrl": "URL del Rebut",
+    "parseReceipt": "Analitzar Rebut (OCR)",
+    "parsing": "Analitzant...",
+    "expenseTitle": "Títol",
+    "vendor": "Nom del Proveïdor",
+    "amount": "Import",
+    "date": "Data de la Despesa",
+    "category": "Categoria",
+    "selectCategory": "Selecciona una categoria",
+    "description": "Descripció",
+    "descriptionPlaceholder": "Descripció o notes opcionals",
+    "saveDraft": "Desar Esborrany",
+    "submit": "Enviar",
+    "saving": "Desant...",
+    "submitting": "Enviant...",
+    "draftSaved": "Esborrany desat",
+    "required": "*"
+  },
+  "detail": {
+    "backToList": "Tornar a la Llista",
+    "vendor": "Proveïdor",
+    "amount": "Import",
+    "date": "Data de la Despesa",
+    "category": "Categoria",
+    "created": "Creat",
+    "updated": "Actualitzat",
+    "description": "Descripció",
+    "receipt": "Rebut",
+    "viewReceipt": "Veure Rebut",
+    "approvalHistory": "Historial d'Aprovacions",
+    "actions": "Accions",
+    "submitForApproval": "Enviar per Aprovació",
+    "submitting": "Enviant...",
+    "approve": "Aprovar",
+    "reject": "Rebutjar",
+    "approving": "Aprovant...",
+    "rejecting": "Rebutjant...",
+    "markAsPaid": "Marcar com a Pagat",
+    "processing": "Processant...",
+    "commentLabel": "Comentari (requerit per rebuig)",
+    "commentPlaceholder": "Afegeix un comentari...",
+    "notFound": "Despesa no trobada"
+  },
+  "dashboard": {
+    "title": "Tauler de Control",
+    "loading": "Carregant tauler...",
+    "submitted": "Enviades",
+    "approved": "Aprovades",
+    "paid": "Pagades",
+    "pendingAmount": "Import Pendent",
+    "categoryTotals": "Totals per Categoria",
+    "category": "Categoria",
+    "totalAmount": "Import Total",
+    "noData": "No hi ha dades de despeses disponibles",
+    "total": "Total"
+  },
+  "status": {
+    "draft": "esborrany",
+    "submitted": "enviat",
+    "approved": "aprovat",
+    "rejected": "rebutjat",
+    "paid": "pagat"
+  },
+  "categories": {
+    "travel": "Viatges",
+    "meals": "Àpats",
+    "office": "Material d'Oficina",
+    "supplies": "Material d'Oficina",
+    "software": "Programari",
+    "equipment": "Equipament",
+    "other": "Altres"
+  },
+  "samples": {
+    "officeSupplies": {
+      "title": "Material d'Oficina",
+      "description": "Paper, bolígrafs i carpetes per a l'equip"
+    },
+    "businessLunch": {
+      "title": "Dinar de Negocis",
+      "description": "Dinar amb client potencial - Discussió del projecte Mobile World Congress"
+    },
+    "softwareLicense": {
+      "title": "Llicència de Software",
+      "description": "Subscripció anual CRM per a l'equip de vendes"
+    },
+    "conferenceTravel": {
+      "title": "Viatge a Conferència",
+      "description": "Vol d'anada i tornada Barcelona-Amsterdam per Smart City Expo"
+    },
+    "teamBuilding": {
+      "title": "Activitat Team Building",
+      "description": "Sortida d'equip Q1 per al departament de Vendes"
+    },
+    "personalItem": {
+      "title": "Article Personal",
+      "description": "Equipament d'oficina"
+    }
+  },
+  "approvalComments": {
+    "approved": "Aprovat. Despesa necessària per al nostre treball de vendes.",
+    "approvedConference": "Aprovat. L'assistència a la conferència és valuosa per al desenvolupament professional.",
+    "rejected": "Això sembla una compra personal. Si us plau, reviseu la política de despeses de l'empresa."
+  },
+  "common": {
+    "loading": "Carregant...",
+    "error": "Error",
+    "retry": "Reintentar",
+    "notFound": "Pàgina no trobada"
+  }
+}

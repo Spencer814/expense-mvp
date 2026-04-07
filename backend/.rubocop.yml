@@ -1,0 +1,73 @@
+# RuboCop Configuration for Expense MVP Backend
+# Rails 7 API application
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.2
+  Exclude:
+    - 'db/schema.rb'
+    - 'bin/*'
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+    - 'tmp/**/*'
+    - 'log/**/*'
+
+# Layout
+Layout/LineLength:
+  Max: 120
+  AllowedPatterns:
+    - '^\s*#'
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+# Metrics - Relaxed for spec files
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'config/routes.rb'
+    - 'db/seeds.rb'
+
+Metrics/MethodLength:
+  Max: 20
+  Exclude:
+    - 'db/seeds.rb'
+
+Metrics/ClassLength:
+  Max: 200
+
+Metrics/AbcSize:
+  Max: 25
+  Exclude:
+    - 'db/seeds.rb'
+
+# Style
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: always
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: single_quotes
+
+Style/BlockDelimiters:
+  EnforcedStyle: braces_for_chaining
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: either
+
+# Lint
+Lint/ConstantDefinitionInBlock:
+  Exclude:
+    - 'spec/**/*'
+
+Lint/UselessAssignment:
+  Enabled: true

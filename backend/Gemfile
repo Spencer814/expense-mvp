@@ -1,0 +1,82 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+ruby '>= 3.2.0'
+
+# Rails framework
+gem 'rails', '~> 7.1.0'
+
+# Database
+gem 'sqlite3', '~> 2.0', group: %i[development test]
+gem 'pg', '~> 1.5', group: :production
+
+# Web server
+gem 'puma', '~> 6.0'
+
+# JSON API
+gem 'active_model_serializers', '~> 0.10.14'
+gem 'jbuilder', '~> 2.11'
+gem 'rack-cors'
+
+# Authentication & Authorization (optional but recommended)
+gem 'bcrypt', '~> 3.1'
+# gem 'jwt', '~> 2.7'  # Uncomment for JWT auth
+
+# Background jobs (optional)
+# gem 'sidekiq', '~> 7.2'
+# gem 'redis', '~> 5.0'
+
+# Performance & caching
+gem 'bootsnap', require: false
+gem 'oj', '~> 3.16' # Fast JSON parser
+
+# Internationalization
+gem 'rails-i18n', '~> 7.0' # Locale data for Rails
+
+# API documentation (optional but helpful)
+# gem 'rswag', '~> 2.13'
+
+# Windows timezone data
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+group :development, :test do
+  # Debugging
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'pry-rails', '~> 0.3'
+
+  # Testing
+  gem 'database_cleaner-active_record', '~> 2.1'
+  gem 'factory_bot_rails', '~> 6.4'
+  gem 'faker', '~> 3.2'
+  gem 'rspec-rails', '~> 6.1'
+  gem 'shoulda-matchers', '~> 6.0'
+
+  # Code quality
+  gem 'brakeman', '~> 6.1', require: false # Security scanner
+  gem 'rubocop', '~> 1.62', require: false
+  gem 'rubocop-performance', '~> 1.21', require: false
+  gem 'rubocop-rails', '~> 2.24', require: false
+  gem 'rubocop-rspec', '~> 2.27', require: false
+
+  # Test coverage
+  gem 'simplecov', '~> 0.22', require: false
+end
+
+group :development do
+  # Development tools
+  gem 'annotate', '~> 3.2' # Add schema comments to models
+  gem 'bullet', '~> 7.1' # N+1 query detection
+  gem 'listen', '~> 3.9'
+
+  # Speed up commands
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.1'
+end
+
+group :test do
+  # API testing
+  gem 'vcr', '~> 6.2'
+  gem 'webmock', '~> 3.23'
+end
