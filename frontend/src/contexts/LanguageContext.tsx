@@ -28,8 +28,8 @@ export const languageOptions: Record<Language, { name: string; flagSrc: string }
 // localStorage key for persistence
 const STORAGE_KEY = 'expense_mvp_language';
 
-// Default language (Catalan for Barcelona)
-const DEFAULT_LANGUAGE: Language = 'ca';
+// Default language
+const DEFAULT_LANGUAGE: Language = 'en';
 
 // Context type
 interface LanguageContextType {
