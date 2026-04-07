@@ -3,6 +3,9 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+  # Health check for Railway
+  get 'api/health', to: proc { [200, {}, ['OK']] }
+
   namespace :api do
     # Users - for role switching in frontend
     resources :users, only: [:index]
