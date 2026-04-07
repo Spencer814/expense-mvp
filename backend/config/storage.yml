@@ -1,0 +1,10 @@
+# Use local storage for development and test
+local:
+  service: Disk
+  root: <%= Rails.root.join("storage") %>
+
+# Use local storage for production as well (can be changed to S3, etc. later)
+# For an API-only app without file uploads, this is just to satisfy Rails requirements
+production:
+  service: Disk
+  root: <%= Rails.root.join("storage") %>
