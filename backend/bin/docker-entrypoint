@@ -1,13 +1,22 @@
 #!/bin/bash
 set -e
 
+echo "=== Docker Entrypoint Starting ==="
+echo "DATABASE_URL is set: ${DATABASE_URL:+yes}"
+echo "RAILS_ENV: $RAILS_ENV"
+
 # Run migrations
-echo "Running database migrations..."
-bundle exec rails db:migrate
+echo "=== Running database migrations ==="
+bundle exec rails db:migrate --trace
 
 # Seed database if tables are empty
-echo "Checking if database needs seeding..."
-bundle exec rails runner "exit(User.count > 0 ? 0 : 1)" 2>/dev/null || bundle exec rails db:seed
+echo "=== Checking if database needs seeding ==="
+if bundle exec rails runner "exit(User.count > 0 ? 0 : 1)" 2>/dev/null; then
+  echo "Database already has data, skipping seed"
+else
+  echo "Seeding database..."
+  bundle exec rails db:seed --trace
+fi
 
-echo "Starting server..."
+echo "=== Starting server ==="
 exec "$@"
