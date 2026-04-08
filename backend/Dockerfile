@@ -28,11 +28,7 @@ COPY . .
 # Precompile bootsnap
 RUN bundle exec bootsnap precompile --gemfile app/ lib/
 
-# Make entrypoint executable
-RUN chmod +x bin/docker-entrypoint
-
-# Expose port
+# Expose port (Railway uses $PORT)
 EXPOSE 3000
 
-# Run migrations and start server - v3 force rebuild
-CMD ["./bin/docker-entrypoint", "bundle", "exec", "puma", "-C", "config/puma.rb"]
+# Railway's startCommand in railway.toml handles startup

@@ -1,3 +1,6 @@
 [build]
 builder = "dockerfile"
 dockerfilePath = "Dockerfile"
+
+[deploy]
+startCommand = "bundle exec rails db:migrate db:seed && bundle exec puma -C config/puma.rb"
