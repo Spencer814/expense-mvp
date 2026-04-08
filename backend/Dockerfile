@@ -31,4 +31,5 @@ RUN bundle exec bootsnap precompile --gemfile app/ lib/
 # Expose port (Railway uses $PORT)
 EXPOSE 3000
 
-# Railway's startCommand in railway.toml handles startup
+# Start: run migrations, seed, then start puma
+CMD ["sh", "-c", "bundle exec rails db:migrate && bundle exec rails db:seed && bundle exec puma -C config/puma.rb"]
