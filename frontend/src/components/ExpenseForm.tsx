@@ -2,6 +2,7 @@ import React, { type ChangeEvent, type FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useCurrency } from '../contexts/CurrencyContext';
+import { API_BASE_URL } from '../services/api';
 
 /**
  * Form data structure for creating/editing expenses
@@ -127,7 +128,7 @@ const ExpenseForm: React.FC = () => {
       setOcrLoading(true);
       setError(null);
 
-      const response = await fetch('/api/parse-receipt', {
+      const response = await fetch(`${API_BASE_URL}/parse-receipt`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -176,7 +177,7 @@ const ExpenseForm: React.FC = () => {
         amount: parseFloat(formData.amount) || 0,
       };
 
-      const response = await fetch('/api/expenses', {
+      const response = await fetch(`${API_BASE_URL}/expenses`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -259,7 +260,7 @@ const ExpenseForm: React.FC = () => {
           amount: parseFloat(formData.amount),
         };
 
-        const createResponse = await fetch('/api/expenses', {
+        const createResponse = await fetch(`${API_BASE_URL}/expenses`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -276,7 +277,7 @@ const ExpenseForm: React.FC = () => {
       }
 
       // Submit the expense
-      const submitResponse = await fetch(`/api/expenses/${expenseId}/submit`, {
+      const submitResponse = await fetch(`${API_BASE_URL}/expenses/${expenseId}/submit`, {
         method: 'POST',
       });
 

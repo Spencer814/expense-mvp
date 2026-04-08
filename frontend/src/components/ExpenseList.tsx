@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useFormatters } from '../hooks/useFormatters';
 import { useTheme } from '../contexts/ThemeContext';
+import { API_BASE_URL } from '../services/api';
 
 /**
  * Represents an expense record from the API
@@ -72,7 +73,7 @@ const ExpenseList: React.FC = () => {
       try {
         setLoading(true);
         setError(null);
-        const response = await fetch('/api/expenses');
+        const response = await fetch(`${API_BASE_URL}/expenses`);
 
         if (!response.ok) {
           throw new Error(`Failed to fetch expenses: ${response.statusText}`);

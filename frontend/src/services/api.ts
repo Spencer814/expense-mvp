@@ -6,7 +6,7 @@
  */
 
 // Use environment variable for production, fallback to /api for development (proxied by Vite)
-const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
+export const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
 
 // Global state for current user ID (used for X-User-Id header)
 let currentUserId: number | null = null;

@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useFormatters } from '../hooks/useFormatters';
 import { useTheme } from '../contexts/ThemeContext';
+import { API_BASE_URL } from '../services/api';
 
 /**
  * Aggregate statistics for expense dashboard
@@ -79,7 +80,7 @@ const Dashboard: React.FC = () => {
         setLoading(true);
         setError(null);
 
-        const response = await fetch('/api/dashboard');
+        const response = await fetch(`${API_BASE_URL}/dashboard`);
 
         if (!response.ok) {
           throw new Error(`Failed to fetch dashboard data: ${response.statusText}`);
