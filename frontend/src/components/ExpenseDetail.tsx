@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useFormatters } from '../hooks/useFormatters';
+import { API_BASE_URL } from '../services/api';
 
 /**
  * User interface for role-based access control
@@ -131,7 +132,7 @@ const ExpenseDetail: React.FC<ExpenseDetailProps> = ({ currentUser }) => {
         setLoading(true);
         setError(null);
 
-        const response = await fetch(`/api/expenses/${id}`);
+        const response = await fetch(`${API_BASE_URL}/expenses/${id}`);
 
         if (!response.ok) {
           throw new Error(`Failed to fetch expense: ${response.statusText}`);
@@ -169,7 +170,7 @@ const ExpenseDetail: React.FC<ExpenseDetailProps> = ({ currentUser }) => {
       setActionLoading(true);
       setError(null);
 
-      const response = await fetch(`/api/expenses/${expense.id}/submit`, {
+      const response = await fetch(`${API_BASE_URL}/expenses/${expense.id}/submit`, {
         method: 'POST',
       });
 
@@ -205,7 +206,7 @@ const ExpenseDetail: React.FC<ExpenseDetailProps> = ({ currentUser }) => {
       setActionLoading(true);
       setError(null);
 
-      const response = await fetch(`/api/expenses/${expense.id}/approve`, {
+      const response = await fetch(`${API_BASE_URL}/expenses/${expense.id}/approve`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -252,7 +253,7 @@ const ExpenseDetail: React.FC<ExpenseDetailProps> = ({ currentUser }) => {
       setActionLoading(true);
       setError(null);
 
-      const response = await fetch(`/api/expenses/${expense.id}/reject`, {
+      const response = await fetch(`${API_BASE_URL}/expenses/${expense.id}/reject`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -293,7 +294,7 @@ const ExpenseDetail: React.FC<ExpenseDetailProps> = ({ currentUser }) => {
       setActionLoading(true);
       setError(null);
 
-      const response = await fetch(`/api/expenses/${expense.id}/mark-paid`, {
+      const response = await fetch(`${API_BASE_URL}/expenses/${expense.id}/mark-paid`, {
         method: 'POST',
       });
 
