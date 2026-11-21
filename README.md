@@ -108,11 +108,3 @@ expense-mvp/
 2. **Role-Based Filtering:** API filters data based on user role
 3. **Mock OCR:** Stubbed endpoint for receipt parsing
 4. **Cents Storage:** Amounts stored as integers (cents) to avoid floating-point issues
-
-## Interview Talking Points
-
-- State machine design mirrors NgRx/Redux patterns
-- Role-based access without complex auth
-- Mock integrations for MVP speed
-- Dashboard aggregation for business visibility
-- Audit trail through Approvals table
